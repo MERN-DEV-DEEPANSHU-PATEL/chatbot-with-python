@@ -416,7 +416,10 @@
         }
       });
 
-      sendChatBtn.addEventListener("click", handleChat);
+      sendChatBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        handleChat();
+      });
       closeBtn.addEventListener("click", function () {
         document.body.classList.remove("show-chatbot");
       });
