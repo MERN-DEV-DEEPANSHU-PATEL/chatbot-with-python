@@ -87,25 +87,6 @@ def respond_to_query(query):
             'response':
             'Welcome to our Stock Market course, how can I help you?'
         }
-    elif any(word in query.lower()
-             for word in ["price", "cost", "how much money", "per video"]):
-        # Construct HTML response with pricing information
-        html_response = """
-        <h3>Pricing Information:</h3>
-        <p>We need to distribute the videos based on two strategies:</p>
-        <ol>
-            <li>Full context access for ₹15,999</li>
-            <li>Pay per video option</li>
-        </ol>
-        <p>We need to map price range for each video as follows:</p>
-        <ul>
-        """
-        for i in range(1, 21):
-            price = 99 + i * 63
-            html_response += f"<li>Video {i}: ₹{price}</li>"
-        html_response += "</ul>"
-
-        return {'type': 'html', 'response': html_response}
     else:
         matched_question = max(
             FAQ.keys(), key=lambda key: fuzz.token_set_ratio(query, key))
