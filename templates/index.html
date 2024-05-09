@@ -420,11 +420,8 @@
         e.preventDefault();
         handleChat();
       });
-      closeBtn.addEventListener("click", function () {
-        document.body.classList.remove("show-chatbot");
-      });
-      chatbotToggler.addEventListener("click", function () {
-        document.body.classList.toggle("show-chatbot");
+      window.addEventListener("load", function () {
+        document.body.classList.add("show-chatbot");
       });
     </script>
   </body>
